@@ -12,7 +12,11 @@ export const officerList = () => {
                 officerHTMLRepresentation += officerHTML(officer)
             }
         
-            contentElement.innerHTML = officerHTMLRepresentation
-            
+            contentElement.innerHTML = `
+            <h2>Glassdale PD Officers</h2>
+            <article class="officerList">
+                ${officerHTMLRepresentation}
+            </article>
+            `
         })
 }
