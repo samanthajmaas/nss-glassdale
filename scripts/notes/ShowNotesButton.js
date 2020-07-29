@@ -9,5 +9,5 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 export const showNoteButton = () => {
-    contentTarget.innerHTML= "<button id='showNotes'> Show Notes </button>"
+    contentTarget.innerHTML = "<button id='showNotes'> Show Notes </button>"
 }
