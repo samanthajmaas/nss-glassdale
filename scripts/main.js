@@ -1,9 +1,14 @@
-import {officerList} from "./officers/OfficerList.js"
 import {criminalsList} from "./criminals/CriminalList.js"
 import {ConvictionSelect} from "./convictions/ConvictionSelect.js"
 import {officersSelect} from "./officers/OfficerSelect.js"
+import { NoteForm } from "./notes/NoteForm.js";
+import { showNoteButton } from "./notes/ShowNotesButton.js";
+import "./notes/NoteList.js"
 
-officerList()
+
+
 criminalsList()
 ConvictionSelect()
 officersSelect()
+NoteForm()
+showNoteButton()

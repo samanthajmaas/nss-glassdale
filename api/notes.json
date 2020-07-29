@@ -1,0 +1,17 @@
+{
+  "notes": [
+    {
+      "title": "Note about suspect",
+      "author": "Gino Hill",
+      "content": "Thought something suspicious about Dolly Monahan.",
+      "timestamp": "07/29/2020",
+      "id": 1
+    },
+    {
+      "title": "I did it",
+      "author": "Sam",
+      "content": "Yes I did",
+      "id": 2
+    }
+  ]
+}

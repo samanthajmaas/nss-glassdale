@@ -33,7 +33,6 @@ eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
 eventHub.addEventListener("officerSelected", (event) => {
     // How can you access the officer name that was selected by the user?
     const officerName = event.detail.officer
-    console.log("officerName")
     // How can you get the criminals that were arrested by that officer?
     const officers = officersCopy()
     const foundOfficerName = officers.find(
