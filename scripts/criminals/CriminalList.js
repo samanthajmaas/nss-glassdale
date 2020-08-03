@@ -2,11 +2,12 @@ import {criminalsCopy, getCriminals} from "./CriminalProvider.js"
 import {criminalHTML} from "./CriminalHTMLConverter.js"
 import {convictionsCopy,} from "../convictions/ConvictionProvider.js"
 import {officersCopy} from "../officers/OfficerProvider.js"
+import {alibiButton} from "../associates/KnownAssociatesButton.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector (".container")
 
-//Listening for the select from Crimal Select
+//Listening for the select from Criminal Select
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
 
     const crimeThatWasSelected = crimeSelectedEvent.detail.crimeId
@@ -61,7 +62,7 @@ export const criminalsList =() => {
 
             render (criminalsArray)
         })
-
+        .then(alibiButton)
 }
 
 //Function that creates html for all criminals, crime select, and officer select

@@ -12,6 +12,13 @@
       "author": "Sam",
       "content": "Yes I did",
       "id": 2
+    },
+    {
+      "title": "Did it",
+      "author": "Sam",
+      "content": "Did it",
+      "timestamp": 1596251037542,
+      "id": 3
     }
   ]
 }
