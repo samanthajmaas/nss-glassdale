@@ -4,8 +4,6 @@ import {officersSelect} from "./officers/OfficerSelect.js"
 import { NoteForm } from "./notes/NoteForm.js";
 import { showNoteButton } from "./notes/ShowNotesButton.js";
 import "./notes/NoteList.js"
-import {showWitnessButton} from "./witnesses/WitnessesButton.js"
-import {clickForWitnessButton} from "./witnesses/WitnessesButton.js"
 
 
 
@@ -14,5 +12,3 @@ ConvictionSelect()
 officersSelect()
 NoteForm()
 showNoteButton()
-showWitnessButton()
-clickForWitnessButton()
