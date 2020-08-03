@@ -2,7 +2,7 @@ import {witnessesCopy, getWitnesses} from "./WitnessesProvider.js"
 import {witnessHTML} from "./WitnessesHTML.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
-const eventHub = document.querySelector(".container")
+
 
 
 export const WitnessList = () => {

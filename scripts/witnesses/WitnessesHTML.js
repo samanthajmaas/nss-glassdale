@@ -3,6 +3,7 @@ export const witnessHTML = (witnessObj) => {
     <section class="witnesses">
         <div class="wtinessName">Name: ${witnessObj.name}</div>
         <div class="witnessStatement"> Statement: ${witnessObj.statements}</div>
+        <br></br>
     </section>
     `
 }
