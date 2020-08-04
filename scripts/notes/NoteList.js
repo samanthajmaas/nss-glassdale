@@ -8,6 +8,7 @@ eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()
 })
 
+
 export const NoteList = () => {
     getNotes()
         .then (() => {
@@ -23,5 +24,9 @@ const render = (noteArray) => {
          }
      ).join("")
  
-     contentTarget.innerHTML = allNotesTurnedIntoStrings
+     contentTarget.innerHTML = 
+     `<button id='hideNotes'> Hide Notes </button>
+     <br></br>
+      ${allNotesTurnedIntoStrings}
+      `
  }

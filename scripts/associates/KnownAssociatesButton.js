@@ -11,5 +11,9 @@ export const alibiButton = () => {
         const contentTarget = document.querySelector(`.alibiDialog--${associatesIdArray}`)
         contentTarget.showModal()
         }
+    else if (clickEvent.target.id ==="associateCloseButton") {
+        const contentTarget = clickEvent.target.parentNode
+        contentTarget.close()
+    }
 })
 }

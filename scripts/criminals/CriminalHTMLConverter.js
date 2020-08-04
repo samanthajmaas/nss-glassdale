@@ -16,6 +16,7 @@ export const criminalHTML = (criminalObj) => {
                     }
             ).join("")
         }
+            <button id="associateCloseButton">Close</button>
         </dialog>
         
     </section>

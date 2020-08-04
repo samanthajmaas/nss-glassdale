@@ -1,16 +1,24 @@
-import {WitnessList} from "./WitnessesList.js"
 
 const contentTarget = document.querySelector(".witnessButton")
 const eventHub = document.querySelector(".container")
 
-export const clickForWitnessButton = () => {
-    eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "showWitnesses") {
-        WitnessList()
+eventHub.addEventListener("click", showButtonEvent => {
+    if (showButtonEvent.target.id === "showWitnesses") {
+        const showButtonEvent = new CustomEvent("showWitnessesButton")
+        eventHub.dispatchEvent(showButtonEvent)  
     }
 })
-}
+
 
 export const showWitnessButton = () => {
     contentTarget.innerHTML = "<button id='showWitnesses'> Show Witnesses </button>"
 }
+
+
+eventHub.addEventListener("click", hideButtonEvent => {
+    if(hideButtonEvent.target.id === "hideWitnesses") {
+        const hideButtonEvent = new CustomEvent("hideWitnessesButton")
+        eventHub.dispatchEvent(hideButtonEvent)  
+        }
+    })
+

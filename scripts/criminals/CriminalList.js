@@ -3,9 +3,18 @@ import {criminalHTML} from "./CriminalHTMLConverter.js"
 import {convictionsCopy,} from "../convictions/ConvictionProvider.js"
 import {officersCopy} from "../officers/OfficerProvider.js"
 import {alibiButton} from "../associates/KnownAssociatesButton.js"
+import {showWitnessButton} from "../witnesses/WitnessesButton.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector (".container")
+
+
+eventHub.addEventListener("hideWitnessesButton", (hideButtonEvent) => {
+    contentElement.innerHTML = ``
+    criminalsList()
+    showWitnessButton()
+})
+
 
 //Listening for the select from Criminal Select
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {

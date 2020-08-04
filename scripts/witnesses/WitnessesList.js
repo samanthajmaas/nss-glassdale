@@ -2,7 +2,13 @@ import {witnessesCopy, getWitnesses} from "./WitnessesProvider.js"
 import {witnessHTML} from "./WitnessesHTML.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
+const contentTarget = document.querySelector(".witnessButton")
+const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("showWitnessesButton", (showButtonEvent) => {
+    WitnessList()
+    contentTarget.innerHTML += "<button id='hideWitnesses'> Hide Witnesses </button>"
+})
 
 
 export const WitnessList = () => {
