@@ -1,31 +1,20 @@
 {
   "notes": [
     {
-      "title": "Note about suspect",
-      "author": "Gino Hill",
-      "content": "Thought something suspicious about Dolly Monahan.",
-      "timestamp": "07/29/2020",
+      "title": "New Note",
+      "criminalId": 11,
+      "author": "Sam Maas",
+      "content": "Now I can select a criminal which is cool.",
+      "timestamp": 1597332654385,
       "id": 1
     },
     {
-      "title": "I did it",
+      "title": "Still works",
+      "criminalId": 2,
       "author": "Sam",
-      "content": "Yes I did",
+      "content": "I hope this still works",
+      "timestamp": 1597332979135,
       "id": 2
-    },
-    {
-      "title": "Did it",
-      "author": "Sam",
-      "content": "Did it",
-      "timestamp": 1596251037542,
-      "id": 3
-    },
-    {
-      "title": "I know that Maggie Did it",
-      "author": "Sam",
-      "content": "Maggie did it for sure!",
-      "timestamp": 1596558731694,
-      "id": 4
     }
   ]
 }
