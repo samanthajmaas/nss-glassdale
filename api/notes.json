@@ -1,14 +1,6 @@
 {
   "notes": [
     {
-      "title": "New Note",
-      "criminalId": 11,
-      "author": "Sam Maas",
-      "content": "Now I can select a criminal which is cool.",
-      "timestamp": 1597332654385,
-      "id": 1
-    },
-    {
       "title": "Still works",
       "criminalId": 2,
       "author": "Sam",

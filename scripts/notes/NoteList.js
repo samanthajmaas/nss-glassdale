@@ -5,6 +5,11 @@ import {criminalsCopy} from "../criminals/CriminalProvider.js"
 const contentTarget = document.querySelector(".noteList")
 const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("noteStateChanged", customEvent => {
+    const allNotes = useNotes()
+    render(allNotes)
+})
+
 eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()
 })
