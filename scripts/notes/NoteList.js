@@ -1,14 +1,19 @@
 import { getNotes, useNotes} from "./NoteDataProvider.js"
 import { noteHTML } from "./NoteHTMLConverter.js"
 import {criminalsCopy} from "../criminals/CriminalProvider.js"
+import {NoteForm} from "./NoteForm.js"
 
 const contentTarget = document.querySelector(".noteList")
 const eventHub = document.querySelector(".container")
 
+
+
 eventHub.addEventListener("noteStateChanged", customEvent => {
     const allNotes = useNotes()
     render(allNotes)
+    NoteForm()
 })
+
 
 eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()

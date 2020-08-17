@@ -10,6 +10,19 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id.startsWith("noteEditButton--")) {
+        const [prompt, noteId] = clickEvent.target.id.split("--")
+
+        const customEvent= new CustomEvent("editNoteClicked" , {
+            detail: {
+                noteId: parseInt(noteId)
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+})
+
 
 export const noteHTML = (noteObj, criminalObj) => {
     return `
@@ -20,6 +33,7 @@ export const noteHTML = (noteObj, criminalObj) => {
             <div class="input note--author">Author: ${ noteObj.author }</div>
             <div class="input note--timetamp">Timestamp: ${ new Date(noteObj.timestamp).toLocaleDateString('en-US') }</div>
 
+            <button id="noteEditButton--${noteObj.id}">Edit</button>
             <button id="noteDeleteButton--${noteObj.id}">Delete</button>
         </section>
             `
