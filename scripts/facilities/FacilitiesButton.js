@@ -14,9 +14,9 @@ export const showFacilitiesButton = () => {
 }
 
 
-eventHub.addEventListener("click", hideButtonEvent => {
-    if(hideButtonEvent.target.id === "hideFacilities") {
-        const hideButtonEvent = new CustomEvent("hideFacilitiesEvent")
-        eventHub.dispatchEvent(hideButtonEvent)  
+eventHub.addEventListener("click", hideFacilitiesButtonEvent => {
+    if(hideFacilitiesButtonEvent.target.id === "hideFacilities") {
+        const hideFacilitiesButtonEvent = new CustomEvent("hideFacilitiesEvent")
+        eventHub.dispatchEvent(hideFacilitiesButtonEvent)  
         }
     })

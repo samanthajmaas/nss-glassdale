@@ -9,7 +9,7 @@ const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("showFacilitiesEvent" , (showFaciltiesEvent) => {
     facilitiesList()
-    contentTarget.innerHTML = "<button id=`hideFacilities`> Hide Facilities </button>"
+    contentTarget.innerHTML += "<button id=`hideFacilities`> Hide Facilities </button>"
 })
 
 export const facilitiesList= () => {
