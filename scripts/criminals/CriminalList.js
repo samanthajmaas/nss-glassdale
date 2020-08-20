@@ -1,12 +1,14 @@
-import {criminalsCopy, getCriminals} from "./CriminalProvider.js"
-import {criminalHTML} from "./CriminalHTMLConverter.js"
-import {convictionsCopy,} from "../convictions/ConvictionProvider.js"
-import {officersCopy} from "../officers/OfficerProvider.js"
-import {alibiButton} from "../associates/KnownAssociatesButton.js"
-import {showWitnessButton} from "../witnesses/WitnessesButton.js"
+import { criminalsCopy, getCriminals } from "./CriminalProvider.js"
+import { criminalHTML } from "./CriminalHTMLConverter.js"
+import { convictionsCopy, } from "../convictions/ConvictionProvider.js"
+import { officersCopy } from "../officers/OfficerProvider.js"
+import { alibiButton } from "../associates/KnownAssociatesButton.js"
+import { showWitnessButton } from "../witnesses/WitnessesButton.js"
+import { getFacilities, useFacilities } from "../facilities/FacilitiesDataProvider.js"
+import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
-const eventHub = document.querySelector (".container")
+const eventHub = document.querySelector(".container")
 
 
 eventHub.addEventListener("hideWitnessesButton", (hideButtonEvent) => {
@@ -35,7 +37,7 @@ eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
         }
     )
 
-    render (filteredCriminals)
+    render(filteredCriminals)
 })
 
 
@@ -47,11 +49,11 @@ eventHub.addEventListener("officerSelected", (event) => {
     const officers = officersCopy()
     const foundOfficerName = officers.find(
         (officerObj) => {
-        return parseInt(officerName) === officerObj.id
-    }
-    
-)
-const criminals = criminalsCopy()
+            return parseInt(officerName) === officerObj.id
+        }
+
+    )
+    const criminals = criminalsCopy()
 
     const filteredOfficers = criminals.filter(
         (currentCriminalObj) => {
@@ -59,36 +61,46 @@ const criminals = criminalsCopy()
         }
     )
 
-    render (filteredOfficers)
+    render(filteredOfficers)
 })
 
 //Creates the List of All Criminals
-export const criminalsList =() => {
+export const criminalsList = () => {
 
     getCriminals()
         .then(() => {
             const criminalsArray = criminalsCopy()
 
-            render (criminalsArray)
+            render(criminalsArray)
         })
         .then(alibiButton)
 }
 
 //Function that creates html for all criminals, crime select, and officer select
 const render = (arrayOfCriminals) => {
-    
-    let criminalHTMLRepresentation=""
-    arrayOfCriminals.forEach(criminal => {
-        criminalHTMLRepresentation += criminalHTML(criminal)
-    })
-    
+    getFacilities()
+        .then(getCriminalFacilities)
+        .then(() => {
+            const facilities = useFacilities()
+            const facilitiesCriminalRelationships = useCriminalFacilities()
 
-    contentElement.innerHTML = `
-    <h2>Glassdale Convicted Criminals</h2>
-    <article class="criminalList">
-        ${criminalHTMLRepresentation}
-    </article>
-    `
+            const allCriminalsTurnedIntoHTML = arrayOfCriminals.map(
+                (criminal) => {
+                    const relationship = facilitiesCriminalRelationships.filter(fcr => fcr.criminalId === criminal.id)
+                    const findFacilitiesForCriminal = relationship.map(foundFacility => {
+                        return facilities.find(facility => facility.id === foundFacility.facilityId)
+                    })
+                    return criminalHTML(criminal, findFacilitiesForCriminal)
+                }
+            ).join("")
+
+            contentElement.innerHTML = `
+            <h2>Glassdale Convicted Criminals</h2>
+                <article class="criminalList">
+                    ${allCriminalsTurnedIntoHTML}
+                </article>
+            `
+        })
 }
 
 
