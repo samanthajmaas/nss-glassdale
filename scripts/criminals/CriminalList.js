@@ -6,6 +6,7 @@ import { alibiButton } from "../associates/KnownAssociatesButton.js"
 import { showWitnessButton } from "../witnesses/WitnessesButton.js"
 import { getFacilities, useFacilities } from "../facilities/FacilitiesDataProvider.js"
 import { getCriminalFacilities, useCriminalFacilities } from "../facilities/CriminalFacilityProvider.js"
+import {showFacilitiesButton} from "../facilities/FacilitiesButton.js"
 
 const contentElement = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
@@ -17,6 +18,11 @@ eventHub.addEventListener("hideWitnessesButton", (hideButtonEvent) => {
     showWitnessButton()
 })
 
+eventHub.addEventListener("hideFacilitiesEvent", (hideFacilitiesButtonEvent) => {
+    contentElement.innerHTML = ``
+    criminalsList()
+    showFacilitiesButton()
+})
 
 //Listening for the select from Criminal Select
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
