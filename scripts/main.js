@@ -7,6 +7,8 @@ import "./notes/NoteList.js"
 import {showWitnessButton} from "./witnesses/WitnessesButton.js"
 import {hideNotesButton} from "./notes/HideNotesButton.js"
 import "./witnesses/WitnessesList.js"
+import {showFacilitiesButton} from "./facilities/FacilitiesButton.js"
+import "./facilities/FacilitiesList.js"
 
 
 
@@ -18,3 +20,4 @@ NoteForm()
 showNoteButton()
 showWitnessButton()
 hideNotesButton()
+showFacilitiesButton()
